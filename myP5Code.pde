@@ -7,6 +7,10 @@ void setup() {
 var fireworkX = 400;
 var explosionX = 0;
 var explosionX2 = 0;
+var explosionX2ColorR = 255; 
+var explosionX2ColorG = 42;  
+var explosionX2ColorB = 0;
+
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
@@ -23,7 +27,7 @@ draw = function(){
   ellipse(328,100,explosionX,explosionX);
   
   //explosion2
-  fill(255, 42, 0, 100);
+  fill(explosionX2ColorR, explosionX2ColorG, explosionX2ColorB, 100);
   ellipse(99,100,explosionX2,explosionX2);
   ellipse(328,100,explosionX2,explosionX2);
    if(mousePressed){
@@ -39,6 +43,11 @@ draw = function(){
   else{
   explosionX = explosionX + 3
   explosionX2 = explosionX2 + 1
+  
+  if (explosionX2ColorR > 0) explosionX2ColorR -= 5; 
+        if (explosionX2ColorG > 0) explosionX2ColorG -= 2; 
+        if (explosionX2ColorB < 255) explosionX2ColorB += 5; 
+
   }
 
 }
