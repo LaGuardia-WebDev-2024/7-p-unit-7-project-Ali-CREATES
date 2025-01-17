@@ -4,22 +4,42 @@ void setup() {
 }
 
 //🎯Variable Declarations Go Here
-var fireworkX = 20;
+var fireworkX = 400;
+var explosionX = 0;
+var explosionX2 = 0;
 
 //🟢Draw Procedure - Runs on Repeat
 draw = function(){
- 
+ noStroke()
   background(255,255,255,0);
+  //firework
+  fill(250,250,250,500)
+  rect(99, fireworkX, 10, 30);
+  rect(328, fireworkX, 10, 30);
   
+  //explosion
+  fill(998, 255, 0, 100);
+  ellipse(99,100,explosionX,explosionX);
+  ellipse(328,100,explosionX,explosionX);
+  
+  //explosion2
+  fill(255, 42, 0, 100);
+  ellipse(99,100,explosionX2,explosionX2);
+  ellipse(328,100,explosionX2,explosionX2);
    if(mousePressed){
     showXYPositions();
     
   }
   
   //🎯Animation Code Goes Here
-  rect(fireworkX, 15, 10, 10);
+  rect(99, fireworkX, 10, 30);
   
-  fireworkX = fireworkX + 1;
+  if(fireworkX > 100){
+  fireworkX = fireworkX - 3;}
+  else{
+  explosionX = explosionX + 3
+  explosionX2 = explosionX2 + 1
+  }
 
 }
 
